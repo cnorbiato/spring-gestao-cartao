@@ -1,0 +1,56 @@
+plugins {
+	id 'org.springframework.boot' version '2.2.5.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'br.com.fiap.cartao.aluno'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+	testImplementation 'org.springframework.batch:spring-batch-test'
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+}
+
+test {
+	useJUnitPlatform()
+}
+
+tasks.register("bootRunLocal") {
+	group = "application"
+	description = "Runs this project as a Spring Boot application with the local profile"
+	apply from : rootProject.file("gradle/profile_local.gradle")
+	doFirst {
+		tasks.bootRun.configure {
+			systemProperty("spring.profiles.active", "local")
+			jvmArgs = ["-agentlib:jdwp=transport=dt_socket,server=y,address=5005,suspend=n"]
+		}
+	}
+	finalizedBy("bootRun")
+}
+
+tasks.register("bootRunDev") {
+	group = "application"
+	description = "Runs this project as a Spring Boot application with the dev profile"
+	apply from : rootProject.file("gradle/profile_dev.gradle")
+	doFirst {
+		tasks.bootRun.configure {
+			systemProperty("spring.profiles.active", "dev")
+		}
+	}
+	finalizedBy("bootRun")
+}

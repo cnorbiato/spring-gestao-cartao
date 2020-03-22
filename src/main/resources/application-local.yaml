@@ -1,0 +1,21 @@
+application:
+  config:
+    profileName: local
+
+server:
+  port: 9006
+
+spring:
+  batch:
+    job:
+      enabled: false
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL
+    driverClassName: org.h2.Driver
