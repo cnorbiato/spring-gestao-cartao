@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "valorCompra": 199.90,
+  "dataHoraCompra": "1970-01-01T00:00:00",
+  "aluno": {
+    "id": 1,
+    "nome": "Caio Norbiato",
+    "documento": "333950",
+    "email": "caio@norbiato.net"
+  }
+}
