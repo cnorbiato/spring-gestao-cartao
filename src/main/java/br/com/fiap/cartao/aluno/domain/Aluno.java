@@ -1,20 +1,20 @@
 package br.com.fiap.cartao.aluno.domain;
 
-import lombok.Getter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigInteger;
 
 @Entity
 @NoArgsConstructor
-@Getter
-@Setter
-public class Aluno {
+@Data
+public class Aluno implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -24,6 +24,9 @@ public class Aluno {
 
     private String documento;
 
+    private String email;
+
+    @JsonIgnore
     public boolean isAnyEmpty(){
         return this.nome.isEmpty() || this.documento.isEmpty() ? true: false;
     }

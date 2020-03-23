@@ -24,12 +24,11 @@ public class AlunoJob {
     private StepBuilderFactory stepBuilderFactory;
     private AlunoProcessor alunoProcessor;
     private AlunoDbWriter alunoDbWriter;
-    private SkipBadLinesPolicy skipBadLinesPolicy;
     private AlunoFileRowMapper alunoFileRowMapper;
 
     @Qualifier(value = "alunoJob")
     @Bean
-    public Job demo9Job() throws Exception {
+    public Job alunoMainJob() throws Exception {
         return this.jobBuilderFactory.get("alunoJob")
                 .start(step1AlunoJob())
                 .build();
@@ -38,7 +37,7 @@ public class AlunoJob {
     @Bean
     public Step step1AlunoJob() {
         return this.stepBuilderFactory.get("step1")
-                .<Aluno, Aluno>chunk(2)
+                .<Aluno, Aluno>chunk(20)
                 .reader(alunoReader())
                 .processor(alunoProcessor)
                 .writer(alunoDbWriter)
@@ -51,7 +50,6 @@ public class AlunoJob {
         FlatFileItemReader<Aluno> reader = new FlatFileItemReader<>();
         reader.setComments(new String[] { "-"});
         reader.setResource(new ClassPathResource("/static/lista_alunos.txt"));
-        //reader.setRecordSeparatorPolicy(skipBadLinesPolicy);
         reader.setLineMapper(new DefaultLineMapper<Aluno>() {{
             setLineTokenizer(new FixedLengthTokenizer() {{
                 setNames("nome", "documento");
