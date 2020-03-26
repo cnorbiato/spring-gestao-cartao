@@ -17,7 +17,7 @@ import java.math.BigInteger;
 public class Aluno implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private BigInteger id;
 
     private String nome;

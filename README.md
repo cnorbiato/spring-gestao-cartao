@@ -58,4 +58,33 @@ doker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:
 2. Executar a task bootRunDev
 ![gradleruntasks](resources/img/gradle_run_tasks.png)
 
+## Funcionalidades
 
+###Carga Batch Clientes
+
+Para executar a carga batch inicial de cliente chame o endpoint:
+```
+http://localhost:9006/job/run
+```
+
+###Cadastro de Alunos
+
+Obter todos os Alunos
+```
+GET: http://localhost:9006/aluno/
+```
+Obter Aluno por Id
+```
+GET: http://localhost:9006/aluno/{id}
+```
+Cadastrar Aluno
+```
+POST: http://localhost:9006/aluno/
+```
+```json
+{
+  "nome": "Caio Norbiato",
+  "documento": "333950",
+  "email": "caio@norbiato.net"
+}
+```
