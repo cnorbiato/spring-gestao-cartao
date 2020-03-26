@@ -60,14 +60,14 @@ doker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:
 
 ## Funcionalidades
 
-###Carga Batch Clientes
+**Carga Batch Clientes
 
 Para executar a carga batch inicial de cliente chame o endpoint:
 ```
 http://localhost:9006/job/run
 ```
 
-###Cadastro de Alunos
+**Gestão de Alunos
 
 Obter todos os Alunos
 ```
