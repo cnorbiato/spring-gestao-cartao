@@ -1,0 +1,17 @@
+application:
+  config:
+    profileName: dev
+server:
+  port: 9006
+spring:
+  batch:
+    job:
+      enabled: false
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: mysecretpassword

@@ -41,3 +41,21 @@ A escolha das ferramentas é livre (banco de dados, container etc), mas devem se
 ### PostgreSQL
 
 1. Melhor gerenciamento de transações referente a RF3
+
+## Como executar a aplicação
+
+### Modo Local
+
+1. Executar a task bootRunLocal
+![gradleruntasks](resources/img/gradle_run_tasks.png)
+
+### Modo Dev (Hom->Prod like)
+1. Executar a instância do postgresql via docker:
+```
+doker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+```
+
+2. Executar a task bootRunDev
+![gradleruntasks](resources/img/gradle_run_tasks.png)
+
+
