@@ -15,7 +15,8 @@ import java.time.LocalDateTime;
 public class Transacao implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private BigInteger id;
 
     private BigDecimal valorCompra;

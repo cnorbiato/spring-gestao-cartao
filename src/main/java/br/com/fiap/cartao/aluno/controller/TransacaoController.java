@@ -25,9 +25,14 @@ public class TransacaoController {
         return transacaoService.findById(id);
     }
 
-    @GetMapping("/documento")
+    @GetMapping(params = { "documento" })
     List<Transacao> findByAlunoDocumento(@RequestParam(name = "documento" ) String documento){
         return transacaoService.findByDocumentoAluno(documento);
+    }
+
+    @PostMapping
+    Transacao insert(@RequestBody Transacao transacao){
+        return transacaoService.insert(transacao);
     }
 
 }

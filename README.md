@@ -60,14 +60,14 @@ doker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:
 
 ## Funcionalidades
 
-**Carga Batch Clientes
+**Carga Batch Clientes**
 
 Para executar a carga batch inicial de cliente chame o endpoint:
 ```
 http://localhost:9006/job/run
 ```
 
-**Gestão de Alunos
+**Gestão de Alunos**
 
 Obter todos os Alunos
 ```
@@ -86,5 +86,32 @@ POST: http://localhost:9006/aluno/
   "nome": "Caio Norbiato",
   "documento": "333950",
   "email": "caio@norbiato.net"
+}
+```
+
+**Gestão de Transações
+
+Obter todos as transações
+```
+GET: http://localhost:9006/transacao/
+```
+Obter transacao por id
+```
+GET: http://localhost:9006/transacao/{id}
+```
+Inserir transacao
+```
+POST: http://localhost:9006/aluno/
+```
+```json
+{
+    "valorCompra": 399.90,
+    "dataHoraCompra": "1970-01-01T00:00:00",
+    "aluno": {
+        "id": 1,
+        "nome": "Caio Norbiato",
+        "documento": "333950",
+        "email": "caio@norbiato.net"
+    }
 }
 ```

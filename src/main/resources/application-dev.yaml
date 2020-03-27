@@ -5,6 +5,7 @@ server:
   port: 9006
 spring:
   batch:
+    initialize-schema: always
     job:
       enabled: false
   jpa:
