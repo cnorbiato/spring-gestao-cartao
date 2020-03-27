@@ -33,11 +33,6 @@ A escolha das ferramentas é livre (banco de dados, container etc), mas devem se
 1. Desenvolvimento Local
 2. Testes Integrados
 
-### H2 Database
-
-1. Desenvolvimento Local
-2. Testes Integrados
-
 ### PostgreSQL
 
 1. Melhor gerenciamento de transações referente a RF3
