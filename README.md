@@ -47,7 +47,7 @@ A escolha das ferramentas é livre (banco de dados, container etc), mas devem se
 ### Modo Dev (Hom->Prod like)
 1. Executar a instância do postgresql via docker:
 ```
-doker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d -p 5432:5432 postgres
 ```
 
 2. Executar a task bootRunDev
