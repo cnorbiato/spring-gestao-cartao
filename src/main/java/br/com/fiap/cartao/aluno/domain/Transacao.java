@@ -9,9 +9,10 @@ import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 @Entity
-@AllArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class Transacao implements Serializable {
 
     @Id
@@ -22,6 +23,13 @@ public class Transacao implements Serializable {
     private BigDecimal valorCompra;
 
     private LocalDateTime dataHoraCompra;
+
+    public Transacao(BigInteger id, BigDecimal valorCompra, LocalDateTime dataHoraCompra, Aluno aluno) {
+        this.id = id;
+        this.valorCompra = valorCompra;
+        this.dataHoraCompra = dataHoraCompra;
+        this.aluno = aluno;
+    }
 
     @ManyToOne
     @JoinColumn(name = "documento", referencedColumnName="documento")
