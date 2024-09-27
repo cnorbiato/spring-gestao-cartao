@@ -1,6 +1,7 @@
 package br.com.fiap.cartao.aluno.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.math.BigInteger;
 @Entity
 @NoArgsConstructor
 @Data
+@Builder
 public class Aluno implements Serializable {
 
     @Id
@@ -23,6 +25,13 @@ public class Aluno implements Serializable {
     private String documento;
 
     private String email;
+
+    public Aluno(BigInteger id, String nome, String documento, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.documento = documento;
+        this.email = email;
+    }
 
     @JsonIgnore
     public boolean isAnyEmpty(){
